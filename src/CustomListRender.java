@@ -8,7 +8,6 @@ public class CustomListRender extends JPanel implements ListCellRenderer<Object>
     public CustomListRender() {
         add(content);
         setBackground(Color.white);
-
     }
 
     @Override

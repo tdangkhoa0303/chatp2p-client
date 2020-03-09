@@ -18,23 +18,21 @@ public class Client extends JFrame {
     JPanel app_container;
     JPanel chat_container;
     JTabbedPane nav_container;
-    JPanel chat_area;
     JPanel message_container;
 
     JTextField txtLoginName;
-    JTextField txtMessage;
     CardLayout cardLayout;
     JList activeList;
     JList conversionList;
 
     JButton btnLogIn;
-    JButton btnSend;
 
     Socket s;
     DataInputStream dis;
     DataOutputStream dos;
 
     DefaultListModel model;
+    boolean isLogin = false;
 
     HashMap<String, DefaultListModel> messages = new HashMap<>();
 
@@ -43,7 +41,7 @@ public class Client extends JFrame {
         initComponents();
         btnLogIn.addActionListener(e -> {
             try {
-                s = new Socket("192.168.1.9", 1402);
+                s = new Socket("localhost", 1402);
 
                 dis = new DataInputStream(s.getInputStream());
                 dos = new DataOutputStream(s.getOutputStream());
@@ -62,6 +60,7 @@ public class Client extends JFrame {
                 String[] tmp = reply.split("#");
                 activeList.setListData(Arrays.copyOfRange(tmp, 1, tmp.length));
                 cardLayout.show(app_container, "chat");
+                isLogin = true;
                 JOptionPane.showMessageDialog(app_container, "Hello there " + userName);
 
                 Thread readMessage = new Thread(() -> {
@@ -69,7 +68,6 @@ public class Client extends JFrame {
                         try {
                             String msg = dis.readUTF();
                             String[] received = msg.split("#");
-                            System.out.println(msg);
                             switch (received[0]) {
                                 case "3":
                                     activeList.setListData(Arrays.copyOfRange(received, 1, received.length));
@@ -85,9 +83,9 @@ public class Client extends JFrame {
                                     messages.get(sender).addElement(new Message(received[2], false, LocalDate.now()));
                                     break;
                             }
-                            Thread.sleep(5000);
+                            Thread.sleep(1000);
                         } catch (IOException | InterruptedException ex) {
-                            ex.printStackTrace();
+                            ex.getMessage();
                         }
                     }
 
@@ -127,26 +125,22 @@ public class Client extends JFrame {
             }
         });
 
-        btnSend.addActionListener(actionEvent -> {
-            String content = txtMessage.getText();
-            String recipient = (String) conversionList.getSelectedValue();
-            try {
-                dos.writeUTF(recipient + "#" + content);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            messages.get(recipient).addElement(new Message(content, true, LocalDate.now()));
-            txtMessage.setText("");
-        });
         addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                try {
-                    dos.writeUTF("logout");
-                } catch (IOException ex) {
-                    ex.printStackTrace();
+                if (isLogin) {
+                    try {
+                        dos.writeUTF("logout");
+                        dis.close();
+                        s.close();
+                    } catch (IOException ex) {
+                        ex.printStackTrace();
+                    }
                 }
+                System.exit(0);
             }
+        });
+        addWindowListener(new WindowAdapter() {
         });
     }
 
@@ -165,13 +159,24 @@ public class Client extends JFrame {
         JPanel panel = new JPanel();
         JLabel user = new JLabel(userName);
         JPanel name_container = new JPanel();
+        JPanel input_container = new JPanel();
         GridBagConstraints gbc = new GridBagConstraints();
 
         name_container.setLayout(new FlowLayout(FlowLayout.LEFT));
-        Font font = new Font("SansSerif", Font.PLAIN, 20);
+        name_container.setBorder(BorderFactory.createMatteBorder(0, 0, 1, 0, Color.gray));
+        Font font = new Font("Arial", Font.PLAIN, 20);
         user.setFont(font);
-        user.setBorder(new EmptyBorder(0, 10, 10, 10));
+        user.setBorder(new EmptyBorder(10, 0, 0, 10));
         name_container.add(user);
+
+        input_container.setBackground(Color.white);
+        JTextField txtMessage = new JTextField();
+        JButton btnSend = new JButton("Send");
+        btnSend.setPreferredSize(new Dimension(80, 30));
+        txtMessage.setPreferredSize(new Dimension(300, 30));
+        input_container.add(txtMessage);
+        input_container.add(btnSend);
+        input_container.setBorder(BorderFactory.createMatteBorder(1, 0, 0, 0, Color.gray));
 
         panel.setLayout(new GridBagLayout());
         panel.setPreferredSize(new Dimension(400, 480));
@@ -182,11 +187,32 @@ public class Client extends JFrame {
         gbc.fill = GridBagConstraints.HORIZONTAL;
         name_container.setBackground(Color.white);
         panel.add(name_container, gbc);
+
         gbc.gridy = 1;
         gbc.ipady = 420;
-        panel.add(new JScrollPane(conversion), gbc);
+        JScrollPane scrollPane = new JScrollPane(conversion);
+        scrollPane.setBackground(Color.white);
+        scrollPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        panel.add(scrollPane, gbc);
+
+        gbc.gridy = 2;
+        gbc.ipady = 1;
+        panel.add(input_container, gbc);
+
         panel.setBackground(Color.white);
 
+        btnSend.addActionListener(actionEvent -> {
+            String content = txtMessage.getText().trim();
+            if (!content.equals("")) {
+                try {
+                    dos.writeUTF(userName + "#" + content);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+                messages.get(userName).addElement(new Message(content, true, LocalDate.now()));
+                txtMessage.setText("");
+            }
+        });
 
         conversion.setCellRenderer(new CustomListRender() {
             @Override
@@ -201,6 +227,7 @@ public class Client extends JFrame {
                 return this;
             }
         });
+
         message_container.add(userName, panel);
     }
 
@@ -212,8 +239,8 @@ public class Client extends JFrame {
         // Login view
         login_container = new JPanel();
         login_container.setLayout(new GridLayout(3, 1));
-        login_container.setBorder(new EmptyBorder(200, 20, 200, 20));
-        JLabel welcome = new JLabel("Chat With Jack");
+        login_container.setBorder(new EmptyBorder(150, 20, 150, 20));
+        JLabel welcome = new JLabel("P2P Chat Application");
         welcome.setHorizontalAlignment(SwingConstants.CENTER);
         Font font = new Font("SansSerif", Font.PLAIN, 30);
         welcome.setFont(font);
@@ -221,15 +248,16 @@ public class Client extends JFrame {
         txtLoginName = new JTextField();
         txtLoginName.setPreferredSize(new Dimension(400, 30));
         btnLogIn = new JButton("Let's go");
+        btnLogIn.setPreferredSize(new Dimension(100, 30));
         JPanel container = new JPanel();
         container.add(txtLoginName);
         container.add(btnLogIn);
         login_container.add(container);
 
-
         // Navigation Container
         nav_container = new JTabbedPane();
         nav_container.setBackground(Color.white);
+        nav_container.setBorder(new EmptyBorder(5, 5, 5, 5));
         activeList = new JList();
         activeList.setCellRenderer(new CustomListRender());
         model = new DefaultListModel();
@@ -249,7 +277,9 @@ public class Client extends JFrame {
             }
         });
         JScrollPane active_container = new JScrollPane(activeList);
+        active_container.setBackground(Color.white);
         JScrollPane conversion_container = new JScrollPane(conversionList);
+        conversion_container.setBackground(Color.white);
         nav_container.add("Active", active_container);
         nav_container.add("Conversion", conversion_container);
 
@@ -257,40 +287,18 @@ public class Client extends JFrame {
         chat_container = new JPanel();
         chat_container.setLayout(new GridLayout());
         chat_container.add(nav_container);
-        chat_area = new JPanel();
-        chat_area.setBackground(Color.white);
 
-
-        // Chat Area
-        chat_container.add(chat_area);
         chat_container.setBackground(Color.white);
-
-
-        JPanel input_container = new JPanel();
-        input_container.setBackground(Color.white);
-        txtMessage = new JTextField();
-        btnSend = new JButton("Send");
-        btnSend.setPreferredSize(new Dimension(80, 40));
-        txtMessage.setPreferredSize(new Dimension(300, 40));
-        input_container.add(txtMessage);
-        input_container.add(btnSend);
-        input_container.setPreferredSize(new Dimension(400, 50));
         message_container = new JPanel();
 
-        message_container.setPreferredSize(new Dimension(400, 480));
         message_container.setBackground(Color.white);
         message_container.setLayout(cardLayout);
-        chat_area.add(message_container);
-        chat_area.add(input_container);
-        chat_area.setBorder(new EmptyBorder(20, 0, 0, 0));
-
+        chat_container.add(message_container);
 
         app_container.add("login", login_container);
         app_container.add("chat", chat_container);
 
         Container c = getContentPane();
         c.add(app_container);
-
-
     }
 }

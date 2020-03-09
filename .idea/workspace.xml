@@ -1,7 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f5820de3-4fd7-4d7d-8374-0ce28002664e" name="Default Changelist" comment="" />
+    <list default="true" id="f5820de3-4fd7-4d7d-8374-0ce28002664e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client$5.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client$5.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prj311-chatp2p/Client.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prj311-chatp2p/CustomListCellRenderer$HoverMouseHandler.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prj311-chatp2p/CustomListCellRenderer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prj311-chatp2p/CustomListRender.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prj311-chatp2p/CustomListRender.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prj311-chatp2p/Message.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/prj311-chatp2p/Message.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/prj311-chatp2p/reuseComponent.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CustomListCellRenderer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CustomListRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/CustomListRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reuseComponent.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +33,9 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1YoFG8qpMhugzeZ4H432LwcsDiF" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -22,7 +44,8 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/Workshop67" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -75,28 +98,41 @@
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="304" y="170" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.23.1680.970@0.23.1680.970" timestamp="1583646714023" />
-    <state x="653" y="231" key="#com.intellij.ide.util.MemberChooser" timestamp="1583721428950">
-      <screen x="0" y="23" width="1680" height="970" />
+    <state x="900" y="95" key="#com.intellij.ide.util.MemberChooser" timestamp="1583767170236">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
+    <state x="900" y="95" key="#com.intellij.ide.util.MemberChooser/0.0.1360.728@0.0.1360.728" timestamp="1583767170236" />
     <state x="653" y="231" key="#com.intellij.ide.util.MemberChooser/0.23.1680.970@0.23.1680.970" timestamp="1583721428950" />
-    <state width="1638" height="238" key="GridCell.Tab.0.bottom" timestamp="1583741499570">
-      <screen x="0" y="23" width="1680" height="970" />
+    <state x="523" y="253" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1583748938034">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
+    <state x="523" y="253" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1360.728@0.0.1360.728" timestamp="1583748938034" />
+    <state x="460" y="119" key="FileChooserDialogImpl" timestamp="1583758211461">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state x="460" y="119" key="FileChooserDialogImpl/0.0.1360.728@0.0.1360.728" timestamp="1583758211461" />
+    <state width="1317" height="158" key="GridCell.Tab.0.bottom" timestamp="1583767292421">
+      <screen x="0" y="0" width="1360" height="728" />
+    </state>
+    <state width="1317" height="158" key="GridCell.Tab.0.bottom/0.0.1360.728@0.0.1360.728" timestamp="1583767292421" />
     <state width="796" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1583602205770" />
     <state width="1638" height="238" key="GridCell.Tab.0.bottom/0.23.1680.970@0.23.1680.970" timestamp="1583741499570" />
-    <state width="1638" height="238" key="GridCell.Tab.0.center" timestamp="1583741499569">
-      <screen x="0" y="23" width="1680" height="970" />
+    <state width="1317" height="158" key="GridCell.Tab.0.center" timestamp="1583767292421">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
+    <state width="1317" height="158" key="GridCell.Tab.0.center/0.0.1360.728@0.0.1360.728" timestamp="1583767292421" />
     <state width="796" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1583602205767" />
     <state width="1638" height="238" key="GridCell.Tab.0.center/0.23.1680.970@0.23.1680.970" timestamp="1583741499569" />
-    <state width="1638" height="238" key="GridCell.Tab.0.left" timestamp="1583741499569">
-      <screen x="0" y="23" width="1680" height="970" />
+    <state width="1317" height="158" key="GridCell.Tab.0.left" timestamp="1583767292421">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
+    <state width="1317" height="158" key="GridCell.Tab.0.left/0.0.1360.728@0.0.1360.728" timestamp="1583767292421" />
     <state width="796" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1583602205765" />
     <state width="1638" height="238" key="GridCell.Tab.0.left/0.23.1680.970@0.23.1680.970" timestamp="1583741499569" />
-    <state width="1638" height="238" key="GridCell.Tab.0.right" timestamp="1583741499570">
-      <screen x="0" y="23" width="1680" height="970" />
+    <state width="1317" height="158" key="GridCell.Tab.0.right" timestamp="1583767292421">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
+    <state width="1317" height="158" key="GridCell.Tab.0.right/0.0.1360.728@0.0.1360.728" timestamp="1583767292421" />
     <state width="796" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1583602205768" />
     <state width="1638" height="238" key="GridCell.Tab.0.right/0.23.1680.970@0.23.1680.970" timestamp="1583741499570" />
     <state width="1638" height="303" key="GridCell.Tab.1.bottom" timestamp="1583716007857">
@@ -119,9 +155,10 @@
       <screen x="0" y="23" width="1680" height="970" />
     </state>
     <state x="341" y="147" key="SettingsEditor/0.23.1680.970@0.23.1680.970" timestamp="1583642952707" />
-    <state x="500" y="340" key="com.intellij.ide.util.TipDialog" timestamp="1583715736637">
-      <screen x="0" y="23" width="1680" height="970" />
+    <state x="405" y="238" key="com.intellij.ide.util.TipDialog" timestamp="1583758196975">
+      <screen x="0" y="0" width="1360" height="728" />
     </state>
+    <state x="405" y="238" key="com.intellij.ide.util.TipDialog/0.0.1360.728@0.0.1360.728" timestamp="1583758196975" />
     <state x="500" y="340" key="com.intellij.ide.util.TipDialog/0.23.1680.970@0.23.1680.970" timestamp="1583715736637" />
     <state x="0" y="130" key="new project wizard" timestamp="1583630040267">
       <screen x="0" y="23" width="1680" height="970" />
